@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrowed Books</title>
+</head>
+<body>
+    <h1>Borrowed Books</h1>
+    <ul>
+        {% for borrow in borrows %}
+        <li>
+            {{ borrow.book.title }} (Borrowed on: {{ borrow.borrowed_at }})
+            <a href="{% url 'return_book' borrow.book.pk %}">Return</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'book_list' %}">Back to Book List</a>
+</body>
+</html>
